@@ -35,7 +35,7 @@ class BotosanLayer(YowInterfaceLayer):
             elif messageProtocolEntity.getType() == 'media':
                 self.onMediaMessage(messageProtocolEntity)
 
-            if messageProtocolEntity.getType() == 'text' and self.regex.doesMatchAPattern(messageProtocolEntity.getBody()):
+            if messageProtocolEntity.getType() == 'text' and self.regex.doesMatchAPattern(messageProtocolEntity):
                 message_to_send = self.regex.matchPatterns(messageProtocolEntity)
                 if message_to_send is not None:
                     self.simulateBotosanPreparingAnswer(messageProtocolEntity, messageToSend=message_to_send)

@@ -14,4 +14,4 @@ class DateHelper:
         :return: Boolean
         """
         difference = datetime.now() - datetime.fromtimestamp(timestamp)
-        return difference.seconds < 10
+        return difference.seconds <= 10
