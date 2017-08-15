@@ -14,11 +14,10 @@ class Server(object):
         self.logger = logging.getLogger("botosan.logger")
 
     def start_server(self):
-        """Starts the connection with Whatsapp servers"""
+        """Starts the connection with WhatsApp servers"""
         try:
-            self.logger.info("#" * 50)
-            self.logger.info("\tServer started. Phone number: %s" % self.credentials[0])
-            self.logger.info("#" * 50)
+            self.logger.info("#" * 50 + "\n" +
+                             "\tServer started. Phone number: %s" % self.credentials[0] + "#" * 50)
             stack = BotoSanStack(self.credentials)
             stack.start()
         except KeyboardInterrupt:

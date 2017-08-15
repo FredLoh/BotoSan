@@ -6,7 +6,7 @@ class DateHelper:
         pass
 
     @staticmethod
-    def determineIfBotosanShouldRespond(timestamp):
+    def determine_if_botosan_should_respond(timestamp):
         """
         Determines if botosan should respond given the messages timestamp. Messages older than the threshold
         are ignored,
