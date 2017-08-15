@@ -25,4 +25,4 @@ def random_estaban(message):
 	es_list = ["es ","sera ","siempre lo fue ","sueña con ser ","aspira ser ","es una "]
 	adj_list = ["popo","pipi","caca","exremento", "rata cochina","traidor","nutria","gata","zorra","gordo ","gorda ","cuatrojos ","inutil ","Tonto ","tonta ","basofia","basura","puto","puta","Pato","Patricio","Pato con Lentes","vagina","pitos","traga pitos","perro","perra de Baumann", "perra de Cantu", "perra de Echeverry", "perra de mau Garcia", "perra de Jorge", "perra de Guerra", "perra de Rana", "perra de AlFredrick", "perra de Marchand", "perra de Ricky", "perra de David",
      , "perra de Ortiz", "perra de Olaf", "perra de Peña", "perra de Memo", "perra de Eduardo", "perra de Victor", "perra de Pato", "perra de Vela"]
-    return TextMessageProtocolEntity(random.choice(beban_list) % random.choice(es_list) % random.choice(adj_list), to=message.getFrom())
+    return TextMessageProtocolEntity(u'༼ つ ಠ益ಠ༽つ [%d]' % random.choice(beban_list) % random.choice(es_list) % random.choice(adj_list), to=message.getFrom())
