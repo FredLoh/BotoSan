@@ -7,7 +7,7 @@ class RegexMatcher:
     def __init__(self):
         self.rollPattern = r"\brolls?\b|^/rolls?"
         self.razaPattern = r"\braza\b"
-        self.bebanPattern = r"\BotoSan porfavor insulta a Esteban\b"
+        self.bebanPattern = r"\bBotoSan porfavor insulta a Esteban\b"
 
     def message_matches_a_pattern(self, message):
         """
