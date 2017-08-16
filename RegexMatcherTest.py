@@ -1,6 +1,8 @@
 import unittest
-from RegexMatcher import RegexMatcher
+
 from yowsup.layers.protocol_messages.protocolentities import TextMessageProtocolEntity
+
+from RegexMatcher import RegexMatcher
 
 
 class RegexMatcherRollTests(unittest.TestCase):
@@ -31,11 +33,11 @@ class RegexMatcherRazaTests(unittest.TestCase):
         self.mock_to = "+1234567890"
 
     def testRazaInSentence(self):
-        raza_pattern = TextMessageProtocolEntity("pura raza", to=self.mock_to)
+        raza_pattern = TextMessageProtocolEntity("pura /raza", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(raza_pattern), True)
 
     def testRazaMultipleTimesInSentence(self):
-        multi_raza_pattern = TextMessageProtocolEntity("raza pura raza so", to=self.mock_to)
+        multi_raza_pattern = TextMessageProtocolEntity("/raza pura /raza so", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(multi_raza_pattern), True)
 
 
@@ -56,6 +58,24 @@ class RegexMatcherBebanTests(unittest.TestCase):
     def testBebanDoesNotShowInSentence(self):
         no_beban_pattern = TextMessageProtocolEntity("BotoSan insulta a Esteban", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(no_beban_pattern), False)
+
+
+class RegexMatchEightballTests(unittest.TestCase):
+    def setUp(self):
+        self.regex_matcher = RegexMatcher()
+        self.mock_to = "+1234567890"
+
+    def testSlashRollPattern(self):
+        o_gran_pattern = TextMessageProtocolEntity("o gran botosan cual es el", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(o_gran_pattern), True)
+
+    def testNoRollPattern(self):
+        false_pattern = TextMessageProtocolEntity("no aparece el sentence", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(false_pattern), False)
+
+    def testRollInMiddleOfSentence(self):
+        oh_grande_botosan = TextMessageProtocolEntity("oh grande botosan tesing", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
 
 if __name__ == '__main__':

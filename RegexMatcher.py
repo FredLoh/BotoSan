@@ -1,13 +1,15 @@
 # coding=utf-8
 import re
+
 import BasicTextProtocols
 
 
 class RegexMatcher:
     def __init__(self):
         self.rollPattern = r"\brolls?\b|^/rolls?"
-        self.razaPattern = r"\b/raza\b"
+        self.razaPattern = r" ?/raza\b"
         self.bebanPattern = r"\bBotoSan porfavor insulta a Esteban\b"
+        self.oGranPattern = r"\boh? gran(de)? botosan\b"
 
     def message_matches_a_pattern(self, message):
         """
@@ -20,6 +22,8 @@ class RegexMatcher:
         elif re.search(self.razaPattern, message.getBody()):
             return True
         elif re.search(self.bebanPattern, message.getBody()):
+            return True
+        elif re.search(self.oGranPattern, message.getBody()):
             return True
         else:
             return False
@@ -37,4 +41,6 @@ class RegexMatcher:
             return BasicTextProtocols.random_raza(message)
         elif re.search(self.bebanPattern, message.getBody()):
             return BasicTextProtocols.random_estaban(message)
+        elif re.search(self.oGranPattern, message.getBody()):
+            return BasicTextProtocols.generate_eightball(message)
         return None
