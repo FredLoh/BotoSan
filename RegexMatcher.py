@@ -6,7 +6,7 @@ import BasicTextProtocols
 class RegexMatcher:
     def __init__(self):
         self.rollPattern = r"\brolls?\b|^/rolls?"
-        self.razaPattern = r"\braza\b"
+        self.razaPattern = r"\b/raza\b"
         self.bebanPattern = r"\bBotoSan porfavor insulta a Esteban\b"
 
     def message_matches_a_pattern(self, message):
@@ -36,5 +36,5 @@ class RegexMatcher:
         elif re.search(self.razaPattern, message.getBody()):
             return BasicTextProtocols.random_raza(message)
         elif re.search(self.bebanPattern, message.getBody()):
-            return BasicTextProtocols.random_esteban(message)
+            return BasicTextProtocols.random_estaban(message)
         return None
