@@ -38,6 +38,23 @@ class RegexMatcherRazaTests(unittest.TestCase):
         multi_raza_pattern = TextMessageProtocolEntity("raza pura raza so", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(multi_raza_pattern), True)
 
+class RegexMatcherBebanTests(unittest.TestCase):
+    def setUp(self):
+        self.regex_matcher = RegexMatcher()
+        self.mock_to = "+1234567890"
+
+    def testBebanInSentence(self):
+        beban_pattern = TextMessageProtocolEntity("Hola, BotoSan porfavor insulta a Esteban pronto", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(beban_pattern), True)
+
+    def testBebanMultipleTimesInSentence(self):
+        multi_beban_pattern = TextMessageProtocolEntity("BotoSan porfavor insulta a Esteban , BotoSan porfavor insulta a Esteban", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(multi_beban_pattern), True)
+
+    def testBebanMultipleTimesInSentence(self):
+        no_beban_pattern = TextMessageProtocolEntity("BotoSan insulta a Esteban", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(no_beban_pattern), False)
+
 
 if __name__ == '__main__':
     unittest.main()
