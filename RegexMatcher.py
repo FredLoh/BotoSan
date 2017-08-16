@@ -23,7 +23,7 @@ class RegexMatcher:
             return True
         elif re.search(self.bebanPattern, message.getBody()):
             return True
-        elif re.search(self.oGranPattern, message.getBody()):
+        elif re.compile(self.oGranPattern, re.IGNORECASE).search(message.getBody()):
             return True
         else:
             return False
@@ -41,6 +41,6 @@ class RegexMatcher:
             return BasicTextProtocols.random_raza(message)
         elif re.search(self.bebanPattern, message.getBody()):
             return BasicTextProtocols.random_estaban(message)
-        elif re.search(self.oGranPattern, message.getBody()):
+        elif re.compile(self.oGranPattern, re.IGNORECASE).search(message.getBody()):
             return BasicTextProtocols.generate_eightball(message)
         return None
