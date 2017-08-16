@@ -77,6 +77,10 @@ class RegexMatchEightballTests(unittest.TestCase):
         oh_grande_botosan = TextMessageProtocolEntity("oh grande botosan tesing", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
+    def testUppercaseOhGran(self):
+        oh_grande_botosan = TextMessageProtocolEntity("Oh GRAN BoToSAN tesing", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
+
 
 if __name__ == '__main__':
     unittest.main()
