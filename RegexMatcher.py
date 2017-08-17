@@ -9,7 +9,7 @@ class RegexMatcher:
         self.rollPattern = r"\brolls?\b|^/rolls?"
         self.razaPattern = r" ?/raza\b"
         self.bebanPattern = r"\bBotoSan porfavor insulta a Esteban\b"
-        self.oGranPattern = r"\boh? gran(de)? botosan\b"
+        self.oGranPattern = r"\boh?\sgran(de)?(dioso)?\sbotosan|oh?\smisericordioso\s(?:rey )?botosan\b"
 
     def message_matches_a_pattern(self, message):
         """
