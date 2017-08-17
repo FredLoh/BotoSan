@@ -81,6 +81,27 @@ class RegexMatchEightballTests(unittest.TestCase):
         oh_grande_botosan = TextMessageProtocolEntity("Oh GRAN BoToSAN tesing", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
+   def testgrandioso(self):
+        false_pattern = TextMessageProtocolEntity("Testing oh grandioso botosan testing ", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(false_pattern), True)
+
+    def testmisericordiosotestsinrey(self):
+        oh_grande_botosan = TextMessageProtocolEntity("oh misericordioso botosan tesing", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
+
+    def testmisericordiosotestconrey(self):
+        oh_grande_botosan = TextMessageProtocolEntity("Oh misericordioso rey BoToSAN tesing", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
+
+
+    def testall(self):
+        oh_grande_botosan = TextMessageProtocolEntity("Oh grandioso misericordioso rey BoToSAN tesin", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
+
+
+    def testsimple(self):
+        oh_grande_botosan = TextMessageProtocolEntity("Oh botosan es el mejor", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
 if __name__ == '__main__':
     unittest.main()
