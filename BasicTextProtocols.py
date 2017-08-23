@@ -50,3 +50,20 @@ def generate_eightball(message):
                      "Don't count on it", "My reply is no", "My sources say no", "Maybe", "Not a chance",
                      "Outlook not so good", "Very doubtful", "Ni a vergasos", "Nope", "Nel"]
     return TextMessageProtocolEntity(random.choice(response_list), to=message.getFrom())
+
+
+def generate_jorgita_message(message):
+    response_list = ["tiene herpes en el ano", "es un gusano", "es la perrita de rana", "es el pollo de pato",
+                     "pato es puto", "ama mamar palito", "ama a patito", "no es fino", "es un puñetas",
+                     "es peor de nini que peña", "no le sabe a los lasers", "va a ser la major doctorita del mundito",
+                     "no sabe hablar", "no sabe caminar", "es putita", "es prostitute", "es lentita", "es caquita",
+                     "es una cerdita", "es una lagarta", "es Filipina", "es super gordita", "tiene caries",
+                     "tiene cancer felino", "es una nalga en comparación con olaf", "todos le ganan", "es un pájaro ",
+                     "no puede ver", "esta ciego ", "es todo tonto", "le gusta comer popó", "es un amor",
+                     "esta retrasado mental", "da asco", "me da ganas de vomitar"]
+    return TextMessageProtocolEntity(random.choice(response_list), to=message.getFrom())
+
+
+def generate_pato_message(message):
+    pato_response_list = ["esta ciego", "es un tonto", "es la perra de jorgita"]
+    return TextMessageProtocolEntity(random.choice(pato_response_list), to=message.getFrom())

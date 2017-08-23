@@ -81,27 +81,64 @@ class RegexMatchEightballTests(unittest.TestCase):
         oh_grande_botosan = TextMessageProtocolEntity("Oh GRAN BoToSAN tesing", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
-   def testgrandioso(self):
+    def testgrandioso(self):
         false_pattern = TextMessageProtocolEntity("Testing oh grandioso botosan testing ", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(false_pattern), True)
 
-    def testmisericordiosotestsinrey(self):
+    def testMisericordiosoTestSinRey(self):
         oh_grande_botosan = TextMessageProtocolEntity("oh misericordioso botosan tesing", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
-    def testmisericordiosotestconrey(self):
+    def testMisericordiosoTestConRey(self):
         oh_grande_botosan = TextMessageProtocolEntity("Oh misericordioso rey BoToSAN tesing", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
-
-    def testall(self):
+    def testAll(self):
         oh_grande_botosan = TextMessageProtocolEntity("Oh grandioso misericordioso rey BoToSAN tesin", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
-
-    def testsimple(self):
+    def testSimple(self):
         oh_grande_botosan = TextMessageProtocolEntity("Oh botosan es el mejor", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
+
+
+class RegexMatcherJorgeTests(unittest.TestCase):
+    def setUp(self):
+        self.regex_matcher = RegexMatcher()
+        self.mock_to = "+1234567890"
+
+    def testBebanInSentence(self):
+        jorge_pattern = TextMessageProtocolEntity("Hola, BotoSan jorgita cacashita test", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(jorge_pattern), True)
+
+    def testBebanMultipleTimesInSentence(self):
+        jorgita_cacashita_single = TextMessageProtocolEntity(
+            "jorgita cacashita", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(jorgita_cacashita_single), True)
+
+    def testBebanDoesNotShowInSentence(self):
+        jorgita_no_cacashita = TextMessageProtocolEntity("jorgita no cacashita", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(jorgita_no_cacashita), False)
+
+
+class RegexMatcherPatoTests(unittest.TestCase):
+    def setUp(self):
+        self.regex_matcher = RegexMatcher()
+        self.mock_to = "+1234567890"
+
+    def testBebanInSentence(self):
+        pato_pattern = TextMessageProtocolEntity("Hola, BotoSan patito pollito test", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(pato_pattern), True)
+
+    def testBebanMultipleTimesInSentence(self):
+        patito_pollito_single = TextMessageProtocolEntity(
+            "patito pollito", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(patito_pollito_single), True)
+
+    def testBebanDoesNotShowInSentence(self):
+        patito_no_pollito = TextMessageProtocolEntity("patito no pollito", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(patito_no_pollito), False)
+
 
 if __name__ == '__main__':
     unittest.main()
