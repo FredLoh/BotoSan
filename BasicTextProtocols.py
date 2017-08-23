@@ -62,3 +62,8 @@ def generate_jorgita_message(message):
                      "no puede ver", "esta ciego ", "es todo tonto", "le gusta comer popó", "es un amor",
                      "esta retrasado mental", "da asco", "me da ganas de vomitar"]
     return TextMessageProtocolEntity(random.choice(response_list), to=message.getFrom())
+
+
+def generate_pato_message(message):
+    pato_response_list = ["esta ciego", "es un tonto", "es la perra de jorgita"]
+    return TextMessageProtocolEntity(random.choice(pato_response_list), to=message.getFrom())

@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d852797-a682-4b7c-a68c-fe7f79fc74f5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/snarf.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/snarf.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BasicTextProtocols.py" afterPath="$PROJECT_DIR$/BasicTextProtocols.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RegexMatcher.py" afterPath="$PROJECT_DIR$/RegexMatcher.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RegexMatcherTest.py" afterPath="$PROJECT_DIR$/RegexMatcherTest.py" />
@@ -75,8 +73,8 @@
       <file leaf-file-name="RegexMatcherTest.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/RegexMatcherTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="106" column="43" lean-forward="true" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
+            <state relative-caret-position="425">
+              <caret line="123" column="47" lean-forward="true" selection-start-line="123" selection-start-column="47" selection-end-line="123" selection-end-column="47" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -117,8 +115,8 @@
       <file leaf-file-name="RegexMatcher.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/RegexMatcher.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="745">
-              <caret line="42" column="60" lean-forward="false" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+            <state relative-caret-position="605">
+              <caret line="42" column="11" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
               <folding>
                 <element signature="e#15#24#0" expanded="true" />
               </folding>
@@ -129,8 +127,8 @@
       <file leaf-file-name="BasicTextProtocols.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BasicTextProtocols.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1040">
-              <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+            <state relative-caret-position="545">
+              <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
               <folding>
                 <element signature="e#15#28#0" expanded="true" />
               </folding>
@@ -433,9 +431,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_RegexMatcherTest_py - 2017.08.14 at 23h 24m 21s.xml">
-      <configuration name="Unittests in RegexMatcherTest.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="Unittests_in_RegexMatcherTest_py - 2017.08.15 at 22h 33m 19s.xml">
       <configuration name="Unittests in RegexMatcherTest.py" configurationId="tests" />
     </history-entry>
@@ -461,6 +456,9 @@
       <configuration name="Unittests in RegexMatcherTest.py" configurationId="tests" />
     </history-entry>
     <history-entry file="Unittests_in_RegexMatcherTest_py - 2017.08.22 at 21h 50m 10s.xml">
+      <configuration name="Unittests in RegexMatcherTest.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="Unittests_in_RegexMatcherTest_py - 2017.08.22 at 21h 54m 51s.xml">
       <configuration name="Unittests in RegexMatcherTest.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -747,30 +745,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BasicTextProtocols.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1040">
-          <caret line="52" column="0" lean-forward="true" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding>
-            <element signature="e#15#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/RegexMatcher.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="745">
-          <caret line="42" column="60" lean-forward="false" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
+        <state relative-caret-position="605">
+          <caret line="42" column="11" lean-forward="true" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
           <folding>
             <element signature="e#15#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BasicTextProtocols.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="32" column="35" lean-forward="false" selection-start-line="32" selection-start-column="35" selection-end-line="32" selection-end-column="35" />
+          <folding>
+            <element signature="e#15#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/RegexMatcherTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="106" column="43" lean-forward="true" selection-start-line="106" selection-start-column="43" selection-end-line="106" selection-end-column="43" />
+        <state relative-caret-position="425">
+          <caret line="123" column="47" lean-forward="true" selection-start-line="123" selection-start-column="47" selection-end-line="123" selection-end-column="47" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

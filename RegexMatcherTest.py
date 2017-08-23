@@ -120,5 +120,25 @@ class RegexMatcherJorgeTests(unittest.TestCase):
         jorgita_no_cacashita = TextMessageProtocolEntity("jorgita no cacashita", to=self.mock_to)
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(jorgita_no_cacashita), False)
 
+
+class RegexMatcherPatoTests(unittest.TestCase):
+    def setUp(self):
+        self.regex_matcher = RegexMatcher()
+        self.mock_to = "+1234567890"
+
+    def testBebanInSentence(self):
+        pato_pattern = TextMessageProtocolEntity("Hola, BotoSan patito pollito test", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(pato_pattern), True)
+
+    def testBebanMultipleTimesInSentence(self):
+        patito_pollito_single = TextMessageProtocolEntity(
+            "patito pollito", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(patito_pollito_single), True)
+
+    def testBebanDoesNotShowInSentence(self):
+        patito_no_pollito = TextMessageProtocolEntity("patito no pollito", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(patito_no_pollito), False)
+
+
 if __name__ == '__main__':
     unittest.main()
