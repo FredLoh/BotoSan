@@ -2,9 +2,11 @@ certifi==2017.7.27.1
 chardet==3.0.4
 idna==2.5
 protobuf==3.3.0
+py==1.4.34
 pycrypto==2.6.1
 PyJWT==1.5.2
 PySocks==1.6.7
+pytest==3.2.1
 python-axolotl==0.1.39
 python-axolotl-curve25519==0.1
 python-dateutil==2.6.1
