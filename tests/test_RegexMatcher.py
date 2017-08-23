@@ -1,4 +1,5 @@
 import unittest
+import env
 
 from yowsup.layers.protocol_messages.protocolentities import TextMessageProtocolEntity
 
