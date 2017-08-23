@@ -10,6 +10,7 @@ class RegexMatcher:
         self.razaPattern = r" ?/raza\b"
         self.bebanPattern = r"\bBotoSan porfavor insulta a Esteban\b"
         self.oGranPattern = r"\boh?\s?(?:gran(de|dioso)?)?\s?(?:misericordioso\s?)?(?:rey\s?)?botosan\b"
+        self.jorgitoPattern = r"\bjorgita cacashita\b"
 
     def message_matches_a_pattern(self, message):
         """
@@ -24,6 +25,8 @@ class RegexMatcher:
         elif re.search(self.bebanPattern, message.getBody()):
             return True
         elif re.compile(self.oGranPattern, re.IGNORECASE).search(message.getBody()):
+            return True
+        elif re.compile(self.jorgitoPattern, re.IGNORECASE).search(message.getBody()):
             return True
         else:
             return False
@@ -43,4 +46,6 @@ class RegexMatcher:
             return BasicTextProtocols.random_estaban(message)
         elif re.compile(self.oGranPattern, re.IGNORECASE).search(message.getBody()):
             return BasicTextProtocols.generate_eightball(message)
+        elif re.compile(self.jorgitoPattern, re.IGNORECASE).search(message.getBody()):
+            return BasicTextProtocols.generate_jorgita_message(message)
         return None

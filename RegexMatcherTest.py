@@ -102,5 +102,23 @@ class RegexMatchEightballTests(unittest.TestCase):
         self.assertEqual(self.regex_matcher.message_matches_a_pattern(oh_grande_botosan), True)
 
 
+class RegexMatcherJorgeTests(unittest.TestCase):
+    def setUp(self):
+        self.regex_matcher = RegexMatcher()
+        self.mock_to = "+1234567890"
+
+    def testBebanInSentence(self):
+        jorge_pattern = TextMessageProtocolEntity("Hola, BotoSan jorgita cacashita test", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(jorge_pattern), True)
+
+    def testBebanMultipleTimesInSentence(self):
+        jorgita_cacashita_single = TextMessageProtocolEntity(
+            "jorgita cacashita", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(jorgita_cacashita_single), True)
+
+    def testBebanDoesNotShowInSentence(self):
+        jorgita_no_cacashita = TextMessageProtocolEntity("jorgita no cacashita", to=self.mock_to)
+        self.assertEqual(self.regex_matcher.message_matches_a_pattern(jorgita_no_cacashita), False)
+
 if __name__ == '__main__':
     unittest.main()
