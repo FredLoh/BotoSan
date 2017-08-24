@@ -12,6 +12,8 @@ class RegexMatcher:
         self.oGranPattern = r"\boh?\s?(?:gran(de|dioso)?)?\s?(?:misericordioso\s?)?(?:rey\s?)?botosan\b"
         self.jorgitoPattern = r"\bjorgita cacashita\b"
         self.patoPattern = r"\bpatito pollito\b"
+        self.triggerPatterns = [self.rollPattern, self.razaPattern, self.bebanPattern, self.oGranPattern,
+                                self.jorgitoPattern, self.patoPattern]
 
     def message_matches_a_pattern(self, message):
         """
@@ -19,20 +21,10 @@ class RegexMatcher:
         :param message: A object of type MessageProtocol
         :return: Boolean
         """
-        if re.search(self.rollPattern, message.getBody()):
-            return True
-        elif re.search(self.razaPattern, message.getBody()):
-            return True
-        elif re.search(self.bebanPattern, message.getBody()):
-            return True
-        elif re.compile(self.oGranPattern, re.IGNORECASE).search(message.getBody()):
-            return True
-        elif re.compile(self.jorgitoPattern, re.IGNORECASE).search(message.getBody()):
-            return True
-        elif re.compile(self.patoPattern, re.IGNORECASE).search(message.getBody()):
-            return True
-        else:
-            return False
+        for pattern in self.triggerPatterns:
+            if re.compile(pattern, re.IGNORECASE).search(message.getBody()):
+                return True
+        return False
 
     def generate_message_protocol_for_pattern(self, message):
         """
