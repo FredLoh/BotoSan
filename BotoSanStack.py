@@ -9,7 +9,7 @@ from yowsup.layers.network import YowNetworkLayer
 class BotoSanStack(object):
     def __init__(self, credentials, encryptionEnabled=True):
         self.stack = YowStackBuilder().pushDefaultLayers(encryptionEnabled)\
-            .push(BotosanLayer).push(BotoChatLayer)\
+            .push(BotoChatLayer).push(BotosanLayer)\
             .build()
         self.stack.setCredentials(credentials)
 

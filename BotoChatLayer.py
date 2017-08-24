@@ -1,22 +1,20 @@
+import logging
 import threading
 
-from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
+from yowsup.layers import YowLayer
 
 
-class BotoChatLayer(YowInterfaceLayer):
+class BotoChatLayer(YowLayer):
     def __init__(self):
-        super(BotoChatLayer, self).__init__()
+        super().__init__()
+        self.logger = logging.getLogger("botosan.logger")
 
-    @ProtocolEntityCallback("receipt")
-    def on_receipt(self, entity):
-        self.toLower(entity.ack())
-
-    @ProtocolEntityCallback("message")
-    def on_message_received(self, message_protocol_entity):
+    def send(self, data):
         threading.Thread(target=self.child()).start()
-        self.toLower(message_protocol_entity.ack())
-        self.toLower(message_protocol_entity.ack(True))
-        self.toLower(message_protocol_entity)
+        self.toLower(data)
+
+    def receive(self, data):
+        self.toUpper(data)
 
     def child(self):
-        print('\nA new child')
+        pass
