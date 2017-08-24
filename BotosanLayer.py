@@ -1,15 +1,14 @@
 # coding=utf-8
+import logging
 import random
 import time
-import logging
+
+from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
+from yowsup.layers.protocol_chatstate.protocolentities import *
+from yowsup.layers.protocol_presence.protocolentities import *
+
 import RegexMatcher
 from DateHelper import DateHelper
-from yowsup.layers.interface import YowInterfaceLayer, ProtocolEntityCallback
-from yowsup.layers.protocol_messages.protocolentities import TextMessageProtocolEntity
-from yowsup.layers.protocol_presence.protocolentities import *
-from yowsup.layers.protocol_chatstate.protocolentities import *
-from yowsup.common.tools import Jid
-from yowsup.layers.protocol_media.protocolentities import *
 
 
 class BotosanLayer(YowInterfaceLayer):
@@ -20,12 +19,12 @@ class BotosanLayer(YowInterfaceLayer):
 
     @ProtocolEntityCallback("message")
     def on_message_received(self, message_protocol_entity):
-        # Ack immediately then take a while to respond
         """
         Handles ever message received, if we want to take action on a message we send the message to the lower
-        layers using self.toLower(MessageProtocolEntitity)
+        layers using self.toLower(MessageProtocolEntity)
         :param message_protocol_entity: A Message of Parent class: MessageProtocolEntity
         """
+        # Ack immediately then take a while to respond
         self.toLower(message_protocol_entity.ack())
         self.toLower(message_protocol_entity.ack(True))
 
@@ -99,12 +98,14 @@ class BotosanLayer(YowInterfaceLayer):
 
     def on_text_message(self, message_protocol_entity):
         """Log the body and phone from which it originated"""
-        self.logger.info("Echoing %s to %s" % (message_protocol_entity.getBody(), message_protocol_entity.getFrom(True)))
+        self.logger.info(
+            "Echoing %s to %s" % (message_protocol_entity.getBody(), message_protocol_entity.getFrom(True)))
 
     def on_media_message(self, message_protocol_entity):
         """Log the image url and phone from which it originated"""
         if message_protocol_entity.getMediaType() == "image":
-            self.logger.info("Echoing image %s to %s" % (message_protocol_entity.url, message_protocol_entity.getFrom(True)))
+            self.logger.info(
+                "Echoing image %s to %s" % (message_protocol_entity.url, message_protocol_entity.getFrom(True)))
 
         elif message_protocol_entity.getMediaType() == "location":
             self.logger.info("Echoing location (%s, %s) to %s" % (
@@ -118,5 +119,6 @@ class BotosanLayer(YowInterfaceLayer):
 
     def on_group_message(self, message):
         """Log the author, participant, user and body of the message"""
-        self.logger.info("Group Message: [%s]  ===  [%s]-[%s]\t%s" % (
-        message.getAuthor(), message.getParticipant(), message.getFrom(), message.getBody()))
+        self.logger.info("Group Message: [%s]  ===  [%s]-[%s]\t%s\nTimestamp: %s" % (
+            message.getAuthor(), message.getParticipant(), message.getFrom(),
+            message.getBody(), message.getTimestamp()))
