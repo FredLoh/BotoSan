@@ -19,12 +19,12 @@ class BotosanLayer(YowInterfaceLayer):
 
     @ProtocolEntityCallback("message")
     def on_message_received(self, message_protocol_entity):
-        # Ack immediately then take a while to respond
         """
         Handles ever message received, if we want to take action on a message we send the message to the lower
-        layers using self.toLower(MessageProtocolEntitity)
+        layers using self.toLower(MessageProtocolEntity)
         :param message_protocol_entity: A Message of Parent class: MessageProtocolEntity
         """
+        # Ack immediately then take a while to respond
         self.toLower(message_protocol_entity.ack())
         self.toLower(message_protocol_entity.ack(True))
 
@@ -119,5 +119,6 @@ class BotosanLayer(YowInterfaceLayer):
 
     def on_group_message(self, message):
         """Log the author, participant, user and body of the message"""
-        self.logger.info("Group Message: [%s]  ===  [%s]-[%s]\t%s" % (
-            message.getAuthor(), message.getParticipant(), message.getFrom(), message.getBody()))
+        self.logger.info("Group Message: [%s]  ===  [%s]-[%s]\t%s\nTimestamp: %s" % (
+            message.getAuthor(), message.getParticipant(), message.getFrom(),
+            message.getBody(), message.getTimestamp()))
