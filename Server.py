@@ -4,7 +4,7 @@ import logging
 from Logging import BotoSanLogger
 from BotoSanStack import BotoSanStack
 
-CREDS = (os.environ["BOTO_NUMBER"], os.environ["BOTO_PASSWORD"])  # replace with your phone and password
+CREDS = (os.environ["BOTO_NUMBER"], os.environ["BOTO_PASSWORD"])
 
 
 class Server(object):
