@@ -11,7 +11,7 @@ python-axolotl==0.1.39
 python-axolotl-curve25519==0.1
 python-dateutil==2.6.1
 pytz==2017.2
-requests==2.18.3
+requests==2.20.0
 six==1.10.0
 slack-logger==0.2.0
 twilio==6.5.1
